@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root, .light {
+    --background: 0 0% 94%; /* #F0F0F0 - Light Gray */
+    --foreground: 144 49% 10%;
+    --card: 0 0% 98%;
+    --card-foreground: 144 49% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 144 49% 10%;
+    --primary: 144 49% 20%; /* #1A4D2E - Deep Green */
+    --primary-foreground: 112 100% 72%; /* #82ff6f - Yellow Green */
+    --secondary: 144 20% 90%;
+    --secondary-foreground: 144 49% 20%;
+    --muted: 144 10% 90%;
+    --muted-foreground: 144 10% 40%;
+    --accent: 112 100% 72%; /* #82ff6f */
+    --accent-foreground: 144 49% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 144 20% 85%;
+    --input: 144 20% 85%;
+    --ring: 144 49% 20%;
+    --header-height: 48px;
+    --sidebar-width: 240px;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 144 49% 10%; /* Comfortable Deep Green tint */
+    --foreground: 112 100% 90%;
+    --card: 144 49% 12%;
+    --card-foreground: 112 100% 90%;
+    --popover: 144 49% 10%;
+    --popover-foreground: 112 100% 90%;
+    --primary: 112 100% 72%; /* #82ff6f - Yellow Green for CTAs in Dark Mode */
+    --primary-foreground: 144 49% 10%;
+    --secondary: 144 20% 15%;
+    --secondary-foreground: 112 100% 90%;
+    --muted: 144 20% 15%;
+    --muted-foreground: 144 10% 60%;
+    --accent: 112 100% 72%; /* #82ff6f */
+    --accent-foreground: 144 49% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 112 100% 90%;
+    --border: 144 20% 20%;
+    --input: 144 20% 20%;
+    --ring: 112 100% 72%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body {
+    @apply bg-background text-foreground;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@keyframes sketch-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.3333%); }
+}
+
+.animate-sketch-marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: sketch-marquee 60s linear infinite;
+  width: max-content;
+  flex-shrink: 0;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.canvas-container {
+  padding-top: var(--header-height);
+}
